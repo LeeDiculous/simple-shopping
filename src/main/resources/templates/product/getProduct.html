@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+
+    <div class="py-5 text-center">
+        <h2><b>상품 정보</b></h2>
+    </div>
+
+    <h4 th:if="${param.status}" th:text="'상품을 등록했습니다'"></h4>
+    <hr class="my-4"/>
+
+    <div>
+        <label for="productId">상품 ID</label>
+        <input type="text" id="productId" class="form-control" th:value="${product.id}" readonly/>
+    </div>
+    <div>
+        <label for="productName">상품 이름</label>
+        <input type="text" id="productName" class="form-control" th:value="${product.name}" readonly>
+    </div>
+    <div>
+        <label for="productPrice">상품 가격</label>
+        <input type="text" id="productPrice" class="form-control" th:value="${product.price}" readonly>
+    </div>
+    <div>
+        <label for="productQuantity">상품 수량</label>
+        <input type="text" id="productQuantity" class="form-control" th:value="${product.quantity}" readonly>
+    </div>
+
+    <hr class="my-4"/>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary"
+                    th:onclick="|location.href='@{/product/{productId}/edit(productId=${product.id})}'|"
+                    type="button">수정</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-primary"
+                    onclick="location.href='/product/getProductList'">상품 목록</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2><b>상품 목록</b></h2>
+    </div>
+
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>상품 ID</th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>수량</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${productList}">
+                <td th:text="${product.id}">상품ID</td>
+                <td><a th:href="@{/product/{productId}(productId=${product.id})}" th:text="${product.name}">이름</a></td>
+                <td th:text="${product.price}">가격</td>
+                <td th:text="${product.quantity}">수량</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary"
+                    onclick="location.href='/'">돌아가기</button>
+        </div>
+        <div th:if="${status == true}" class="col">
+            <button class="w-100 btn btn-primary" th:onclick="|location.href='@{/order/{customerId}/loginOrder(customerId=${customer.id})}'|">주문하기</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

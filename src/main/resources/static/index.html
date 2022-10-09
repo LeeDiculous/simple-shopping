@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+
+    <div class="py-5 text-center">
+        <h1><b>뚝 쇼핑몰</b></h1>
+    </div>
+
+    <div>
+        <button class="w-100 btn btn-dark btn-lg" onclick=location.href="/home" type="button">고객 로직 체험하기</button>
+    </div>
+
+    <hr class="my-4"/>
+    <h6 class="text-center"><b>아래는 테스트 용도임.</b></h6>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-success"
+                    onclick=location.href="/home"
+                    type="button">로그인</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-success"
+                    onclick=location.href="/customer/getCustomerList"
+                    type="button">회원목록</button>
+        </div>
+    </div>
+    <p></p>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary"
+                    onclick="location.href='/product/new'"
+                    type="button">상품등록</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-primary"
+                    onclick="location.href='/product/getProductList'"
+                    type="button">상품목록</button>
+        </div>
+    </div>
+    <p></p>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-warning"
+                    onclick="location.href='/order/new'"
+                    type="button">주문하기</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-warning"
+                    onclick="location.href='/order/getOrderList'"
+                    type="button">주문목록</button>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+
+    <div class="py-5 text-center">
+        <h2><b>고객 정보</b></h2>
+    </div>
+
+    <h4 th:if="${param.status}" th:text="'회원가입이 완료되었습니다.'"></h4>
+    <hr class="my-4"/>
+
+    <div>
+        <label for="customerId">고객 ID</label>
+        <input type="text" id="customerId" class="form-control" th:value="${customer.id}" readonly>
+    </div>
+
+    <div>
+        <label for="customerName">이름</label>
+        <input type="text" id="customerName" class="form-control" th:value="${customer.name}" readonly>
+    </div>
+
+    <div>
+        <label for="customerPhone">전화번호</label>
+        <input type="text" id="customerPhone" class="form-control" th:value="${customer.phone}" readonly>
+    </div>
+
+    <div>
+        <label for="customerCity">도시</label>
+        <input type="text" id="customerCity" class="form-control" th:value="${customer.address.city}" readonly>
+    </div>
+
+    <div>
+        <label for="customerRoadName">도로명</label>
+        <input type="text" id="customerRoadName" class="form-control" th:value="${customer.address.roadName}" readonly>
+    </div>
+
+    <div>
+        <label for="customerPostCode">우편번호</label>
+        <input type="text" id="customerPostCode" class="form-control" th:value="${customer.address.postCode}" readonly>
+    </div>
+
+    <div>
+        <label for="comment">가입사유</label>
+        <input type="text" id="comment" class="form-control" th:value="${customer.comment}" readonly>
+    </div>
+
+    <hr class="my-4"/>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary"
+                    th:onclick="|location.href='@{/}'|"
+                    type="button">돌아가기</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-success"
+                    th:onclick="|location.href='@{/customer/getCustomerList}'|"
+                    type="button">고객 목록</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

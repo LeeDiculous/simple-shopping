@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+
+    <div class="py-5 text-center">
+        <h1><b>뚝 쇼핑몰</b></h1>
+        <h2>주문 등록</h2>
+    </div>
+
+    <form th:action method="post">
+
+        <!-- SELECT -->
+        <div>
+            <div>회원ID</div>
+            <select class="form-select" name="customerId">
+                <option value="">== 주문 고객 ==</option>
+                <option th:each="customer : ${customerList}" th:value="${customer.id}" th:text="${customer.name}"></option>
+            </select>
+        </div>
+        <div>
+            <div>상품</div>
+            <select class="form-select" name="productId">
+                <option value="">== 주문 상품 ==</option>
+                <option th:each="product : ${productList}" th:value="${product.id}" th:text="${product.name}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="count">수량</label>
+            <input type="text" id="count" name="count" class="form-control" placeholder="수량을 입력하세요">
+        </div>
+
+        <hr class="my-4"/>
+
+
+
+    </form>
+</div>
+</body>
+</html>

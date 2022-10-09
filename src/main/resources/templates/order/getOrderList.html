@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2><b>주문 검색</b></h2>
+    </div>
+
+    <form th:action method="post">
+        <div class="text-end">
+            <table class="table">
+                <tr>
+<!--                    <td>-->
+<!--                        회원명 <input type="text" name="searchCustomerName" th:value="${searchInfo.searchCustomerName}">-->
+<!--                        <button class="w-10 btn btn-secondary" type="submit">검색</button>-->
+<!--                    </td>-->
+                    <td>
+                        <input type="text" id="searchCustomerName" th:field="${order.searchCustomerName}" th:placeholder="${customerName}">
+                        <button class="w-10 btn btn-secondary" type="submit">검색</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>순번</th>
+            <th>회원명</th>
+            <th>주문시간</th>
+            <th>상태</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orderList}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.customer.name}"></td>
+            <td th:text="${order.orderDate}"></td>
+            <td th:text="${order.status}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-warning" type="button"
+                    th:onclick="|location.href='@{/}'|">돌아가기</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

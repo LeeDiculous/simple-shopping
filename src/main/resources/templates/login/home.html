@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            max-width: 600px;
+        }
+        .field-error{
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h1><b>뚝 쇼핑몰</b></h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-success btn-lg" type="button"
+                    th:onclick="|location.href='@{/customer/new}'|">회원가입</button>
+        </div>
+
+        <div class="col">
+            <button class="w-100 btn btn-success btn-lg" type="button"
+                    th:onclick="|location.href='@{/login}'|">로그인</button>
+        </div>
+    </div>
+
+    <hr class="my-4"/>
+
+</div> <!-- container -->
+
+</body>
+</html>

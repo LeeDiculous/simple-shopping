@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            max-width: 600px;
+        }
+        .field-error{
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h1><b>뚝 쇼핑몰</b></h1>
+        <h2>상품 등록</h2>
+    </div>
+
+    <form th:action th:object="${product}" method="post">
+        <hr class="my-4">
+
+        <div>
+            <label for="productName"><b>상품명</b></label>
+            <input type="text" id="productName" th:field="*{name}" class="form-control" placeholder="상품명을 입력하세요.">
+        </div>
+        <div>
+            <label for="productPrice"><b>가격</b></label>
+            <input type="text" id="productPrice" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요.">
+        </div>
+        <div>
+            <label for="productQuantity"><b>수량</b></label>
+            <input type="text" id="productQuantity" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요.">
+        </div>
+
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p class="field-error text-center" th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-secondary"
+                        th:onclick="|location.href='@{/}'|"
+                        type="button">돌아가기</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-primary" type="submit">완료</button>
+            </div>
+        </div>
+
+    </form>
+
+</div> <!--container-->
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>뚝 쇼핑몰</title>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+
+    <div class="py-5 text-center">
+        <h2><b>주문상세</b></h2>
+    </div>
+
+    <h4 th:if="${param.status}" th:text="'주문을 완료했습니다'"></h4>
+    <hr class="my-4"/>
+
+    <div>
+        <label for="orderId">주문 ID</label>
+        <input type="text" id="orderId" class="form-control" th:value="${order.id}" readonly/>
+    </div>
+    <div>
+        <label for="customerName">주문자</label>
+        <input type="text" id="customerName" class="form-control" th:value="${customer.name}" readonly>
+    </div>
+    <div>
+        <label for="orderProduct">주문 상품</label>
+        <input type="text" id="orderProduct" class="form-control" th:value="${item.product.name}" readonly>
+    </div>
+    <div>
+        <label for="productQuantity">상품 수량</label>
+        <input type="text" id="productQuantity" class="form-control" th:value="${item.count}" readonly>
+    </div>
+    <div>
+        <label for="orderDate">주문 일시</label>
+        <input type="text" id="orderDate" class="form-control" th:value="${order.orderDate}" readonly>
+    </div>
+    <div>
+        <label for="orderStatus">주문 상태</label>
+        <input type="text" id="orderStatus" class="form-control" th:value="${order.status}" readonly>
+    </div>
+
+    <hr class="my-4"/>
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-dark" type="button"
+                    th:onclick="|location.href='@{/order/getOrderList/{customerId}(customerId=${customer.id})}'|">나의 주문 목록</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
